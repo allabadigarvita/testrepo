@@ -1,5 +1,7 @@
 # Dead code elimination (DCE) and Aggressive dead code elimination (ADCE) passes in LLVM
 
+Garvita Allabadi (garvita4)
+CS526 Advanced Compiler Construction
 LLVM version 8.0.0.
 
 ## Code Locations

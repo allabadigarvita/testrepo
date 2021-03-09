@@ -63,10 +63,10 @@ The Aggressive dead code elimination (ADCE) pass in LLVM takes a different appro
 Algorithm: 
 
 1.	Iterates over the instructions and adds the instructions which are live to the worklist. An instruction is considered live if: 
-    a.	It is the output statement (e.g., return)
-    b.	It has known side effects (e.g., assignment to global variable or calling a function with side effects)
-    c.	It defines a variable x used by an already live statement
-    d.	It is a conditional branch, and some other, already live statement is control dependent on the branch (and its block)
+    1.	It is the output statement (e.g., return)
+    2.	It has known side effects (e.g., assignment to global variable or calling a function with side effects)
+    3.	It defines a variable x used by an already live statement
+    4.	It is a conditional branch, and some other, already live statement is control dependent on the branch (and its block)
 2.	Pop values from the worklist, identify the defining instructions for the operands. 
 3.	Mark these instructions as live and add to the worklist.  
 4.	Repeat until worklist is empty.

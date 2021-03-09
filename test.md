@@ -93,6 +93,7 @@ int main()
 
 **The SSA form looks like:**
 
+```ll
 define i32 @foo() #0 
 {
   br label %1
@@ -114,16 +115,25 @@ define i32 @foo() #0
 ; <label>:7                                      
   ret i32 0
 }
+```
 
 On running DCE, it does not delete the phi node for ‘a’ as it is marked as live subsequently. Whereas on running ADCE, since ‘a’ is not marked as live based on the conditions above, the phi node for ‘a’ is removed after running ADCE. 
 
 **The result of running ADCE followed by loop deletion is:**
 
+```ll
 define i32 @foo() #0 {
   br label %1
 
 ; <label>:1                                     
   ret i32 0
 }
+```
 
 The ADCE pass also removes infinite empty loops from the program. Consider the follwing example:
+
+
+
+
+
+
